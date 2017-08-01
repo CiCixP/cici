@@ -1,0 +1,15 @@
+[Tests]
+  [./aecl_2006]
+    type = 'Exodiff'
+    input = 'aecl_2006.i'
+    exodiff = 'aecl_2006_out.e'
+    custom_cmp = 'aecl_2006.exodiff'
+  [../]
+  [./aecl_ippe_1995]
+    type = 'Exodiff'
+    input = 'aecl_2006.i'
+    exodiff = 'aecl_ippe_1995_out.e'
+    custom_cmp = 'aecl_2006.exodiff'
+    cli_args = 'GlobalParams/chf_table=AECL-IPPE-1995 Outputs/out/file_base=aecl_ippe_1995_out'
+  [../]
+[]
