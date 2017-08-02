@@ -4,7 +4,7 @@ geometricShape::geometricShape() {}
 geometricShape::~geometricShape() {}
 void geometricShape::printOut(std::string shape, std::string parameters, double area)
 {
-  printf("I am a %s with parameters (%s) and an area of %f.", shape.c_str(), parameters.c_str(), area);
+  printf("I am a %s with parameters (%s) and an area of %f. \n", shape.c_str(), parameters.c_str(), area);
 }
 
 Rectangle::Rectangle(double base, double height) : _b(base), _h(height) {}

@@ -8,7 +8,24 @@ int main(int argc, const char * argv[]) {
   
   for (int i = 0; i < par1.size(); i++)
   {
-    shapeObj.push_back(new Rectangle (2,4));
+    shapeObj.push_back(new Rectangle (par1[i],par2[i]));
   }
+  
+  for (int i = 0; i < par1.size(); i++)
+  {
+    shapeObj.push_back(new Triangle (par3[i],par2[i]));
+  }
+  
+  for (int i = 0; i < par1.size(); i++)
+  {
+    shapeObj.push_back(new Circle (par1[i]));
+  }
+  
+  for (auto i : shapeObj)
+  {
+    double area = i->computeArea();
+    i->printOut(i->shape(), i->stringify(), area);
+  }
+  
   return 0;
 }

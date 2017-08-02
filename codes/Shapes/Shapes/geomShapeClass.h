@@ -20,40 +20,37 @@ public:
   virtual void printOut(std::string shape, std::string parameters, double area);
 };
 
-class Rectangle
+class Rectangle : public geometricShape
 {
 public:
   Rectangle(double base, double height);
   std::string shape();
   std::string stringify();
   double computeArea();
-  double printOut(std::string shape, std::string parameters, double area);
 protected:
   double _b;
   double _h;
 };
 
-class Triangle
+class Triangle : public geometricShape
 {
 public:
   Triangle(double base, double height);
   std::string shape();
   std::string stringify();
   double computeArea();
-  double printOut(std::string shape, std::string parameters, double area);
 protected:
   double _b;
   double _h;
 };
 
-class Circle
+class Circle : public geometricShape
 {
 public:
   Circle(double radius);
   std::string shape();
   std::string stringify();
   double computeArea();
-  double printOut(std::string shape, std::string parameters, double area);
 protected:
   double _r;
 };
