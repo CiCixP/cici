@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C946FAE51F32309A009A10D8 /* main.C in Sources */ = {isa = PBXBuildFile; fileRef = C946FAE41F32309A009A10D8 /* main.C */; };
-		C946FAED1F3230C2009A10D8 /* DynamicArray.C in Sources */ = {isa = PBXBuildFile; fileRef = C946FAEB1F3230C2009A10D8 /* DynamicArray.C */; };
 		C946FAF01F327F3B009A10D8 /* DynamicDouble.C in Sources */ = {isa = PBXBuildFile; fileRef = C946FAEE1F327F3B009A10D8 /* DynamicDouble.C */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +26,6 @@
 /* Begin PBXFileReference section */
 		C946FAE11F32309A009A10D8 /* DynArray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DynArray; sourceTree = BUILT_PRODUCTS_DIR; };
 		C946FAE41F32309A009A10D8 /* main.C */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.C; sourceTree = "<group>"; };
-		C946FAEB1F3230C2009A10D8 /* DynamicArray.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicArray.C; sourceTree = "<group>"; };
 		C946FAEC1F3230C2009A10D8 /* DynamicArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicArray.h; sourceTree = "<group>"; };
 		C946FAEE1F327F3B009A10D8 /* DynamicDouble.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicDouble.C; sourceTree = "<group>"; };
 		C946FAEF1F327F3B009A10D8 /* DynamicDouble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicDouble.h; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				C946FAE41F32309A009A10D8 /* main.C */,
-				C946FAEB1F3230C2009A10D8 /* DynamicArray.C */,
 				C946FAEC1F3230C2009A10D8 /* DynamicArray.h */,
 				C946FAEE1F327F3B009A10D8 /* DynamicDouble.C */,
 				C946FAEF1F327F3B009A10D8 /* DynamicDouble.h */,
@@ -130,7 +127,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C946FAE51F32309A009A10D8 /* main.C in Sources */,
-				C946FAED1F3230C2009A10D8 /* DynamicArray.C in Sources */,
 				C946FAF01F327F3B009A10D8 /* DynamicDouble.C in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

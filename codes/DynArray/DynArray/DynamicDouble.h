@@ -10,7 +10,8 @@ public:
   dynDoub();
   ~dynDoub();
   double & operator[](int index);
-  void add(int index, double x);
+  void set(int index, double x);
+  double * reallocate(int index);
   int size();
 protected:
   double * _Arr;
