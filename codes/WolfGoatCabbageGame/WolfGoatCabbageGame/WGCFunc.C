@@ -34,21 +34,28 @@ void move(std::vector<int> & From, std::vector<int> & To, char choice)
   int number = 3;
   From[number] = 0;
   To[number] = 1;
-  if (choice == 'w')
+  std::string anim = " ";
+  switch (choice)
   {
-    number = 0;
-    printf("Moved wolf: \n");
+      case 'w':
+      {
+        number = 0;
+        anim = "wolf";
+        break;
+      }
+      case 'g':
+      {
+        number = 1;
+        anim = "goat";
+        break;
+      }
+      case 'c':
+      {
+        number = 2;
+        anim = "cabbage";
+      }
   }
-  if (choice == 'g')
-  {
-    number = 1;
-    printf("Moved goat: \n");
-  }
-  if (choice == 'c')
-  {
-    number = 2;
-    printf("Moved cabbage: \n");
-  }
+  printf("Moved %s: \n", anim.c_str());
   From[number] = 0;
   To[number] = 1;
 }
