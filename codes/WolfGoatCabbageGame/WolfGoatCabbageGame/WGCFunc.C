@@ -20,7 +20,6 @@ char input(std::vector<int> side, std::string bank)
     {
       if (choice == animal[i] && side[i] == 0)
       {
-        
         printf("The %s is not on the %s side of the river. \n", objName[i].c_str(), bank.c_str());
         valid_choice = 0;
       }
@@ -63,22 +62,14 @@ void move(std::vector<int> & From, std::vector<int> & To, char choice)
 void printMoves(std::vector<int> side)
 {
   printf("   Left  |  Right \n");
-  if (side[0] == 1)
-    printf("   wolf  |       \n");
-  else
-    printf("         |  wolf \n");
-  if (side[1] == 1)
-    printf("   goat  |       \n");
-  else
-    printf("         |  goat \n");
-  if (side[2] == 1)
-    printf(" cabbage |       \n");
-  else
-    printf("         | cabbage \n");
-  if (side[3] == 1)
-    printf(" sailor  |        \n");
-  else
-    printf("         | sailor \n");
+  std::vector<std::string> objName = {"  wolf ","  goat ","cabbage", "sailor "};
+  for (int i = 0; i < 4; i++)
+  {
+    if (side[i] == 1)
+      printf(" %s |       \n", objName[i].c_str());
+    else
+      printf("         | %s \n", objName[i].c_str());
+  }
   printf("\n");
 }
 
