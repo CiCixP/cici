@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C92B18941F38F959006B96C8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C92B18931F38F959006B96C8 /* main.cpp */; };
+		C92B18941F38F959006B96C8 /* main.C in Sources */ = {isa = PBXBuildFile; fileRef = C92B18931F38F959006B96C8 /* main.C */; };
+		C92B189C1F39211C006B96C8 /* Calculator.C in Sources */ = {isa = PBXBuildFile; fileRef = C92B189A1F39211C006B96C8 /* Calculator.C */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		C92B18901F38F959006B96C8 /* Calculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Calculator; sourceTree = BUILT_PRODUCTS_DIR; };
-		C92B18931F38F959006B96C8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C92B18931F38F959006B96C8 /* main.C */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.C; sourceTree = "<group>"; };
+		C92B189A1F39211C006B96C8 /* Calculator.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Calculator.C; sourceTree = "<group>"; };
+		C92B189B1F39211C006B96C8 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 		C92B18921F38F959006B96C8 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				C92B18931F38F959006B96C8 /* main.cpp */,
+				C92B18931F38F959006B96C8 /* main.C */,
+				C92B189A1F39211C006B96C8 /* Calculator.C */,
+				C92B189B1F39211C006B96C8 /* Calculator.h */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -119,7 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92B18941F38F959006B96C8 /* main.cpp in Sources */,
+				C92B18941F38F959006B96C8 /* main.C in Sources */,
+				C92B189C1F39211C006B96C8 /* Calculator.C in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,9 +2,12 @@
 
 int main(int argc, const char * argv[])
 {
-  std::string eq;
-  std::cin >> eq;
-  calculate c(eq);
-  std::cout << c.expression();
+  cout << "Enter equation/expression \n";
+  cin;
+  
+  calculate c;
+  
+  cout << c.expression() << endl;
+  
   return 0;
 }

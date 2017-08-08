@@ -1,22 +1,22 @@
 #include "Calculator.h"
 
-calculate::calculate(std::string input)
+calculate::calculate()
 {
   
 }
 calculate::~calculate() {}
 
-double calculate::expression()
+int calculate::expression()
 {
   // term or sum/difference of terms
-  double result = term();
+  int result = term();
   bool more = true;
   while (more)
   {
-    char op = std::cin.peek();
+    char op = cin.peek();
     if (op == '+' || op == '-')
     {
-      std::cin.get();
+      cin.get();
       int value = term();
       if (op == '+') result += value;
       else result -= value;
@@ -27,31 +27,17 @@ double calculate::expression()
   return result;
 }
 
-double calculate::factor()
-{
-  // a number
-  double result = 0;
-  char c = std::cin.peek();
-  while (isdigit(c))
-  {
-    result = 10 * result + c - '0';
-    std::cin.get();
-    c = std::cin.peek();
-  }
-  return result;
-}
-
-double calculate::term()
+int calculate::term()
 {
   // a factor or product/quotient of factors
-  double result = factor();
+  int result = factor();
   bool more = true;
   while (more)
   {
-    char op = std::cin.peek();
+    char op = cin.peek();
     if (op == '*' || op == '/')
     {
-      std::cin.get();
+      cin.get();
       int value = term();
       if (op == '*') result *= value;
       else
@@ -67,5 +53,23 @@ double calculate::term()
     else more = false;
   }
   
+  return result;
+}
+
+int calculate::factor()
+{
+  // a number
+  int result = 0;
+  char c = cin.peek();
+  while (isdigit(c) || c == ' ')
+  {
+    if (isdigit(c))
+    {
+      result = 10 * result + c - '0';
+      cin.get();
+    }
+    else cin.get();
+    c = cin.peek();
+  }
   return result;
 }

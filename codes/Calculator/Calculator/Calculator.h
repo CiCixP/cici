@@ -2,17 +2,20 @@
 #define Calculator_h
 
 #include <iostream>
+#include <sstream>
 #include <stdio.h>
 #include <string>
+
+using namespace std;
 
 class calculate
 {
 public:
-  calculate(std::string input);
+  calculate();
   ~calculate();
-  double expression();
-  double factor();
-  double term();
+  int expression();
+  int factor();
+  int term();
 };
 
 #endif /* Calculator_h */
