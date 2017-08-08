@@ -8,14 +8,13 @@
 
 using namespace std;
 
-class calculate
-{
+class calculate {
 public:
   calculate();
   ~calculate();
-  int expression();
-  int factor();
-  int term();
+  float expression();
+  float factor();
+  float term();
 };
 
 #endif /* Calculator_h */

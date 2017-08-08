@@ -1,74 +1,63 @@
 #include "Calculator.h"
 
-calculate::calculate()
-{
-  
-}
+calculate::calculate() {}
 calculate::~calculate() {}
 
-int calculate::expression()
-{
+float calculate::expression() {
   // term or sum/difference of terms
-  int result = term();
+  float result = term();
   bool more = true;
-  while (more)
-  {
+  while (more) {
     char op = cin.peek();
-    if (op == '+' || op == '-')
-    {
+    if (op == '+' || op == '-') {
       cin.get();
       int value = term();
-      if (op == '+') result += value;
-      else result -= value;
-    }
-    else more = false;
+      if (op == '+')
+        result += value;
+      else
+        result -= value;
+    } else
+      more = false;
   }
-  
+
   return result;
 }
 
-int calculate::term()
-{
+float calculate::term() {
   // a factor or product/quotient of factors
-  int result = factor();
+  float result = factor();
   bool more = true;
-  while (more)
-  {
+  while (more) {
     char op = cin.peek();
-    if (op == '*' || op == '/')
-    {
+    if (op == '*' || op == '/') {
       cin.get();
       int value = term();
-      if (op == '*') result *= value;
-      else
-      {
-        if (value == 0)
-        {
+      if (op == '*')
+        result *= value;
+      else {
+        if (value == 0) {
           printf("Expression is undefined");
           exit(1);
         }
-        result = result / value;
+        result /= value;
       }
-    }
-    else more = false;
+    } else
+      more = false;
   }
-  
+
   return result;
 }
 
-int calculate::factor()
-{
+float calculate::factor() {
   // a number
-  int result = 0;
+  float result = 0;
   char c = cin.peek();
-  while (isdigit(c) || c == ' ')
-  {
-    if (isdigit(c))
-    {
+  while (isdigit(c) || c == ' ') {
+    if (isdigit(c)) {
       result = 10 * result + c - '0';
       cin.get();
-    }
-    else cin.get();
+    } else
+      cin.get();
     c = cin.peek();
   }
   return result;
