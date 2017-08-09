@@ -3,9 +3,10 @@
 calculate::calculate() {}
 calculate::~calculate() {}
 
-float calculate::expression() {
+double calculate::expression() {
+  cout << "expression \n";
   // term or sum/difference of terms
-  float result = term();
+  double result = term();
   bool more = true;
   while (more) {
     char op = cin.peek();
@@ -19,13 +20,14 @@ float calculate::expression() {
     } else
       more = false;
   }
-
+  //  printf("expression: %f \n", result);
   return result;
 }
 
-float calculate::term() {
+double calculate::term() {
+  cout << "term \n";
   // a factor or product/quotient of factors
-  float result = factor();
+  double result = factor();
   bool more = true;
   while (more) {
     char op = cin.peek();
@@ -44,21 +46,30 @@ float calculate::term() {
     } else
       more = false;
   }
-
+  //  printf("term: %f \n", result);
   return result;
 }
 
-float calculate::factor() {
+double calculate::factor() {
+  cout << "factor \n";
   // a number
-  float result = 0;
+  double result = 0;
   char c = cin.peek();
-  while (isdigit(c) || c == ' ') {
+  while (isdigit(c) || c == ' ' || c == '.') {
     if (isdigit(c)) {
+      cout << "result " << result << endl;
+      cout << "c " << c << endl;
       result = 10 * result + c - '0';
       cin.get();
+      // } else if (c == '.') {
+      //   cin.putback('.');
+      //   cin >> result;
+      //   printf("factor1: %f \n", result);
     } else
       cin.get();
     c = cin.peek();
+    cout << "c " << c << endl;
   }
+  //  printf("factor: %f \n", result);
   return result;
 }

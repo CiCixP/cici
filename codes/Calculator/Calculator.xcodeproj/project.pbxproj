@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C92B18941F38F959006B96C8 /* main.C in Sources */ = {isa = PBXBuildFile; fileRef = C92B18931F38F959006B96C8 /* main.C */; };
 		C92B189C1F39211C006B96C8 /* Calculator.C in Sources */ = {isa = PBXBuildFile; fileRef = C92B189A1F39211C006B96C8 /* Calculator.C */; };
+		C92B18A21F3B6578006B96C8 /* CalcFunc.C in Sources */ = {isa = PBXBuildFile; fileRef = C92B18A01F3B6578006B96C8 /* CalcFunc.C */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		C92B18931F38F959006B96C8 /* main.C */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.C; sourceTree = "<group>"; };
 		C92B189A1F39211C006B96C8 /* Calculator.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Calculator.C; sourceTree = "<group>"; };
 		C92B189B1F39211C006B96C8 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
+		C92B18A01F3B6578006B96C8 /* CalcFunc.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CalcFunc.C; sourceTree = "<group>"; };
+		C92B18A11F3B6578006B96C8 /* CalcFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcFunc.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				C92B18931F38F959006B96C8 /* main.C */,
+				C92B18A01F3B6578006B96C8 /* CalcFunc.C */,
+				C92B18A11F3B6578006B96C8 /* CalcFunc.h */,
 				C92B189A1F39211C006B96C8 /* Calculator.C */,
 				C92B189B1F39211C006B96C8 /* Calculator.h */,
 			);
@@ -125,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C92B18941F38F959006B96C8 /* main.C in Sources */,
+				C92B18A21F3B6578006B96C8 /* CalcFunc.C in Sources */,
 				C92B189C1F39211C006B96C8 /* Calculator.C in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +260,7 @@
 				C92B18991F38F959006B96C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

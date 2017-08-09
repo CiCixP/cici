@@ -12,9 +12,9 @@ class calculate {
 public:
   calculate();
   ~calculate();
-  float expression();
-  float factor();
-  float term();
+  double expression();
+  double factor();
+  double term();
 };
 
 #endif /* Calculator_h */
