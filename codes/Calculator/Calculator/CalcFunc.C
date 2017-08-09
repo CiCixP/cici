@@ -4,7 +4,11 @@ CalcFunc::CalcFunc(const char expressionToParse[]) : expr(expressionToParse) {}
 
 CalcFunc::~CalcFunc() {}
 
-char CalcFunc::get() { return *expr++; }
+double CalcFunc::eval() { return expression(); }
+
+char CalcFunc::get() {
+  return *expr++;
+}
 
 char CalcFunc::peek() {
   if (*expr == ' ') {
@@ -13,33 +17,52 @@ char CalcFunc::peek() {
   return *expr;
 }
 
-int CalcFunc::number() {
-  int result = get() - '0';
-  while (peek() >= '0' && peek() <= '9') {
-    result = 10 * result + get() - '0';
+double CalcFunc::number() {
+  double result = get() - '0';
+  double dec = 0;
+  int p = peek();
+  while ((p >= '0' && p <= '9') || p == '.') {
+    if (p >= '0' && p <= '9') {
+      result = 10 * result + get() - '0';
+      p = peek();
+    } else {
+      int n = 1;
+      get();
+      p = peek();
+      while (p >= '0' && p <= '9') {
+        dec = dec + (p - '0') * pow(0.1, n);
+        n++;
+        get();
+        p = peek();
+      }
+    }
   }
-  return result;
+  return result + dec;
 }
 
-int CalcFunc::expression() {
-  int result = term();
-  if (peek() == ' ') {
-    get();
-  }
-  while (peek() == '+' || peek() == '-')
-    if (get() == '+')
+double CalcFunc::expression() {
+  double result = term();
+  int p = peek();
+  while (p == '+' || p == '-')
+    if (get() == '+') {
+      p = peek();
       result += term();
-    else
+    } else {
+      p = peek();
       result -= term();
+    }
   return result;
 }
 
-int CalcFunc::term() {
-  int result = factor();
-  while (peek() == '*' || peek() == '/')
-    if (get() == '*')
+double CalcFunc::term() {
+  double result = factor();
+  int p = peek();
+  while (p == '*' || p == '/')
+    if (get() == '*') {
+      p = peek();
       result *= factor();
-    else {
+    } else {
+      p = peek();
       if (factor() == 0) {
         printf("Expression is undefined");
         exit(1);
@@ -49,18 +72,16 @@ int CalcFunc::term() {
   return result;
 }
 
-int CalcFunc::factor() {
-  if (peek() >= '0' && peek() <= '9')
-    return number();
-  else if (peek() == '(') {
+double CalcFunc::factor() {
+  int p = peek();
+  if (p >= '0' && p <= '9') {
+    double num = number();
+    return num;
+  } else if (p == '(') {
     get(); // '('
-    int result = expression();
+    double result = expression();
     get(); // ')'
     return result;
-  } else if (peek() == '-') {
-    get();
-    return -factor();
   }
-
   return 0; // error
 }

@@ -2,11 +2,11 @@
 #include "CalcFunc.h"
 
 int main(int argc, const char *argv[]) {
-  const char exprToParse [] = "3*2 + 4*1 + (4+9)*6";
+  const char exprToParse [] = "1.25 +2* 3";
 
   CalcFunc c(exprToParse);
 
-  int result = c.expression();
+  double result = c.eval();
 
   cout << result << endl;
 
