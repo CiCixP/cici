@@ -2,10 +2,10 @@
 #define CalcFunc_h
 
 #include <iostream>
+#include <math.h>
 #include <sstream>
 #include <stdio.h>
 #include <string>
-#include <math.h>
 
 using namespace std;
 
@@ -17,12 +17,12 @@ public:
 
 protected:
   const char *expr;
-  char get();
-  char peek();
+  double AddSub();
+  double MultDiv();
+  double NumPar();
   double number();
-  double expression();
-  double term();
-  double factor();
+  char peek();
+  char get();
 };
 
 #endif /*CalcFunc_h*/
