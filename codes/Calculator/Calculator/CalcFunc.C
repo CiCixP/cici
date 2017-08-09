@@ -1,12 +1,17 @@
 #include "CalcFunc.h"
 
-CalcFunc::CalcFunc(const char expressionToParse []) : expr(expressionToParse) {}
+CalcFunc::CalcFunc(const char expressionToParse[]) : expr(expressionToParse) {}
 
 CalcFunc::~CalcFunc() {}
 
-char CalcFunc::peek() { return *expr; }
-
 char CalcFunc::get() { return *expr++; }
+
+char CalcFunc::peek() {
+  if (*expr == ' ') {
+    get();
+  }
+  return *expr;
+}
 
 int CalcFunc::number() {
   int result = get() - '0';
@@ -18,27 +23,15 @@ int CalcFunc::number() {
 
 int CalcFunc::expression() {
   int result = term();
+  if (peek() == ' ') {
+    get();
+  }
   while (peek() == '+' || peek() == '-')
     if (get() == '+')
       result += term();
     else
       result -= term();
   return result;
-}
-
-int CalcFunc::factor() {
-  if (peek() >= '0' && peek() <= '9')
-    return number();
-  else if (peek() == '(') {
-    get(); // '('
-    int result = expression();
-    get(); // ')'
-    return result;
-  } else if (peek() == '-') {
-    get();
-    return -factor();
-  }
-  return 0; // error
 }
 
 int CalcFunc::term() {
@@ -54,4 +47,20 @@ int CalcFunc::term() {
       result /= factor();
     }
   return result;
+}
+
+int CalcFunc::factor() {
+  if (peek() >= '0' && peek() <= '9')
+    return number();
+  else if (peek() == '(') {
+    get(); // '('
+    int result = expression();
+    get(); // ')'
+    return result;
+  } else if (peek() == '-') {
+    get();
+    return -factor();
+  }
+
+  return 0; // error
 }

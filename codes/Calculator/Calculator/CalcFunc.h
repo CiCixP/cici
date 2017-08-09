@@ -10,17 +10,17 @@ using namespace std;
 
 class CalcFunc {
 public:
-  CalcFunc(const char expressionToParse []);
+  CalcFunc(const char expressionToParse[]);
   ~CalcFunc();
-  int number();
   int expression();
-  int factor();
-  int term();
 
 protected:
   const char *expr;
-  char peek();
   char get();
+  char peek();
+  int number();
+  int term();
+  int factor();
 };
 
 #endif /*CalcFunc_h*/
