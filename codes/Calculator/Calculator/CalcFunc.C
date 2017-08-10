@@ -62,10 +62,12 @@ double CalcFunc::NumPar() {
 double CalcFunc::number() {
   double result = get() - '0';
   double dec = 0;
-  while ((peek() >= '0' && peek() <= '9') || peek() == '.') {
+  int sciNot = 0;
+  while ((peek() >= '0' && peek() <= '9') || peek() == '.' || peek() == 'e' ||
+         peek() == 'E') {
     if (peek() >= '0' && peek() <= '9') {
       result = 10 * result + get() - '0';
-    } else {
+    } else if (peek() == '.') {
       int n = 1;
       get();
       while (peek() >= '0' && peek() <= '9') {
@@ -73,9 +75,24 @@ double CalcFunc::number() {
         n++;
         get();
       }
+    } else if (peek() == 'e' || peek() == 'E') {
+      get();
+      if (peek() == '-') {
+        get();
+        while (peek() >= '0' && peek() <= '9')
+          sciNot = 10 * sciNot + get() - '0';
+        sciNot = -1 * sciNot;
+      } else if (peek() == '+') {
+        get();
+        while (peek() >= '0' && peek() <= '9')
+          sciNot = 10 * sciNot + get() - '0';
+      } else if (peek() >= '0' && peek() <= '9') {
+        while (peek() >= '0' && peek() <= '9')
+          sciNot = 10 * sciNot + get() - '0';
+      }
     }
   }
-  return result + dec;
+  return (result + dec) * pow(10, sciNot);
 }
 
 char CalcFunc::peek() {

@@ -17,7 +17,7 @@ CalcFunc.o : CalcFunc.h
 	$(CC) $(CFLAGS) CalcFunc.C
 
 clean:
-	\rm *.o *~ runFile
+	rm *.o runFile
 
 tar:
 	tar cfv runFile.tar main.C Calculator.h Calculator.C

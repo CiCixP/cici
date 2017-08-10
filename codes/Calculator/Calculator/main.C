@@ -2,7 +2,7 @@
 #include "CalcFunc.h"
 
 int main(int argc, const char *argv[]) {
-  const char exprToParse [] = "1.5^2 + 2*3 + 4";
+  const char exprToParse [] = "1.5^2 + 2*3 + 4e-1";
 
   CalcFunc c(exprToParse);
 
