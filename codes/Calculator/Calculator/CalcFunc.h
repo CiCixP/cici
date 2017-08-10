@@ -20,7 +20,7 @@ protected:
   double AddSub();
   double MultDiv();
   double Expo();
-  double NumPar();
+  double NumNegPar();
   double number();
   char peek();
   char get();

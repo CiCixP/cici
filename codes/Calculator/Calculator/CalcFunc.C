@@ -34,20 +34,24 @@ double CalcFunc::MultDiv() {
 }
 
 double CalcFunc::Expo() {
-  double result = NumPar();
+  double result = NumNegPar();
+  double exponent = 0;
   if (peek() == '^') {
     double base = result;
     get();
-    double exponent = NumPar();
+    exponent = NumNegPar();
     result = pow(base, exponent);
   }
   return result;
 }
 
-double CalcFunc::NumPar() {
+double CalcFunc::NumNegPar() {
   if (peek() >= '0' && peek() <= '9') {
     double num = number();
     return num;
+  } else if (peek() == '-') {
+    get();
+    return -1 * NumNegPar();
   } else if (peek() == '(') {
     get(); // '('
     double result = AddSub();
@@ -77,19 +81,7 @@ double CalcFunc::number() {
       }
     } else if (peek() == 'e' || peek() == 'E') {
       get();
-      if (peek() == '-') {
-        get();
-        while (peek() >= '0' && peek() <= '9')
-          sciNot = 10 * sciNot + get() - '0';
-        sciNot = -1 * sciNot;
-      } else if (peek() == '+') {
-        get();
-        while (peek() >= '0' && peek() <= '9')
-          sciNot = 10 * sciNot + get() - '0';
-      } else if (peek() >= '0' && peek() <= '9') {
-        while (peek() >= '0' && peek() <= '9')
-          sciNot = 10 * sciNot + get() - '0';
-      }
+      sciNot = NumNegPar();
     }
   }
   return (result + dec) * pow(10, sciNot);
