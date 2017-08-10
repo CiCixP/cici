@@ -1,4 +1,4 @@
-OBJS = main.o Calculator.o CalcFunc.o
+OBJS = main.o CalcFunc.o
 CC = g++
 DEBUG = -g
 CFLAGS = -Wall -c $(DEBUG)
@@ -10,9 +10,6 @@ runFile : $(OBJS)
 main.o : main.C Calculator.h Calculator.C CalcFunc.h CalcFunc.C
 	$(CC) $(CFLAGS) main.C
 
-Calculator.o : Calculator.h
-	$(CC) $(CFLAGS) Calculator.C
-
 CalcFunc.o : CalcFunc.h
 	$(CC) $(CFLAGS) CalcFunc.C
 
@@ -20,4 +17,4 @@ clean:
 	rm *.o runFile
 
 tar:
-	tar cfv runFile.tar main.C Calculator.h Calculator.C
+	tar cfv runFile.tar main.C CalcFunc.h CalcFunc.C
