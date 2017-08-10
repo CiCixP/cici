@@ -5,7 +5,7 @@
 #include <math.h>
 #include <sstream>
 #include <stdio.h>
-#include <string>
+#include <string.h>
 
 using namespace std;
 
@@ -19,6 +19,7 @@ protected:
   const char *expr;
   double AddSub();
   double MultDiv();
+  double Expo();
   double NumPar();
   double number();
   char peek();

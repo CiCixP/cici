@@ -7,7 +7,6 @@ CalcFunc::~CalcFunc() {}
 double CalcFunc::eval() { return AddSub(); }
 
 double CalcFunc::AddSub() {
-  printf("{AddSub :\n");
   double result = MultDiv();
   while (peek() == '+' || peek() == '-') {
     if (get() == '+') {
@@ -16,48 +15,48 @@ double CalcFunc::AddSub() {
       result -= MultDiv();
     }
   }
-  printf(" return = %f \n exit AddSub} \n", result);
   return result;
 }
 
 double CalcFunc::MultDiv() {
-  printf(" {MultDiv : \n");
-  double result = NumPar();
+  double result = Expo();
   while (peek() == '*' || peek() == '/')
     if (get() == '*') {
-      result *= NumPar();
+      result *= Expo();
     } else {
-      if (NumPar() == 0) {
+      if (Expo() == 0) {
         printf("Expression is undefined");
         exit(1);
       }
-      result /= NumPar();
+      result /= Expo();
     }
-  printf("  return = %f exit MultDiv} \n", result);
+  return result;
+}
+
+double CalcFunc::Expo() {
+  double result = NumPar();
+  if (peek() == '^') {
+    double base = result;
+    get();
+    double exponent = NumPar();
+    result = pow(base, exponent);
+  }
   return result;
 }
 
 double CalcFunc::NumPar() {
-  printf("  {NumPar : \n");
   if (peek() >= '0' && peek() <= '9') {
     double num = number();
-    printf("   return = %f exit NumPar} \n", num);
     return num;
   } else if (peek() == '(') {
     get(); // '('
     double result = AddSub();
     get(); // ')'
-    printf("   return = %f exit NumPar} \n", result);
     return result;
-  }         /*else if (get() == '^') {
-            printf("   exponent \n");
-            double base = p;
-            get();
-            double expo = peek();
-            printf("   return : %f exit NumPar} \n", pow(base,expo));
-            return pow(base, expo);
-          }*/
-  return 0; // error
+  } else {
+    printf("Invalid expression! \n");
+    exit(10);
+  }
 }
 
 double CalcFunc::number() {
@@ -86,7 +85,4 @@ char CalcFunc::peek() {
   return *expr;
 }
 
-char CalcFunc::get() {
-  printf("     call get %c \n", *(expr + 1));
-  return *expr++;
-}
+char CalcFunc::get() { return *expr++; }
