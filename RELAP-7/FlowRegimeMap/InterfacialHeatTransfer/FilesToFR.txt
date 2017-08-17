@@ -1,0 +1,24 @@
+7eqn_0.i : Dispersed Bubble
+           (alpha_vapor = 0.2, q_wall = 0)
+7eqn_1.i : Cap Slug (Mass flux below 2000)
+           (alpha_vapor = 0.37, q_wall = 0)
+7eqn_2.i : Cap Slug (Mass flux between 2000 and 2700)
+           (alpha_vapor = 0.4, vel_liquid = 4, vel_vapor = 4, q_wall = 0)
+7eqn_3.i : Dispersed Bubble (Mass flux above 2700)
+           (alpha_vapor = 0.42, vel_liquid = 10, vel_vapor = 10, q_wall = 0)
+7eqn_4.i : Interpolation Region
+           (alpha_vapor = 0.68, q_wall = 0)
+7eqn_5.i : Annular Mist
+           (alpha_vapor = 0.83, q_wall = 0)
+7eqn_6.i : Stratified
+           (alpha_vapor = 0.5, vel_liquid = 0, vel_vapor = 0, q_wall = 0)
+7eqn_7.i : Inverted Annular
+           (alpha_vapor = 0.2, q_wall = 10e6)
+7eqn_8.i : Interpolation Region (Post-CHF)
+           (alpha_vapor = 0.72, q_wall = 10e6)
+7eqn_9.i : Inverted Slug
+           (alpha_vapor = 0.92, q_wall = 10e6)
+7eqn_10.i : Transition
+            (alpha_vapor = 0.92, vel_liquid = 50, vel_vapor = 50, q_wall = 10e6)
+7eqn_11.i : Dispersed Droplet
+            (alpha_vapor = 0.92, vel_liquid = 100, vel_vapor = 100, q_wall = 10e6)

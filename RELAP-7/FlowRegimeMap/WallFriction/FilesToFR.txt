@@ -1,0 +1,14 @@
+7eqn_0.i : Bubbly/Slug
+           (alpha_vapor = 0.5, q_wall = 0)
+7eqn_1.i : Transition
+           (alpha_vapor = 0.83, q_wall = 0)
+7eqn_2.i : Annular Mist
+           (alpha_vapor = 0.92, q_wall = 0)
+7eqn_3.i : Stratified
+           (alpha_vapor = 0.5, vel_liquid = 0, vel_vapor = 0, q_wall = 0)
+7eqn_4.i : Inverted Annular
+           (alpha_vapor = 0.2, q_wall = 10e6)
+7eqn_5.i : Interpolated Region
+           (alpha_vapor = 0.72, q_wall = 10e6)
+7eqn_6.i : Dispersed Droplet
+           (alpha_vapor = 0.92, q_wall = 10e6)

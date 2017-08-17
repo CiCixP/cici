@@ -1,0 +1,98 @@
+[Tests]
+  [./iht0_DispersedBubble]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_prechf.i'
+    csvdiff = 'iface_heat_transfer_fr0_1.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'Outputs/file_base=iface_heat_transfer_fr0_1’
+  [../]
+  [./iht1_CapSlugBelow2000]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_prechf.i'
+    csvdiff = 'iface_heat_transfer_fr1_1.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.37 Outputs/file_base=iface_heat_transfer_fr1_1'
+  [../]
+  [./iht1_CapSlugBtwn20002700]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_prechf.i'
+    csvdiff = 'iface_heat_transfer_fr1_2.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.4 ClosureTest2Phase/vel_liquid=4 ClosureTest2Phase/vel_vapor=4 Outputs/file_base=iface_heat_transfer_fr1_2'
+  [../]
+  [./iht0_DispersedBubbleAbove2700]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_prechf.i'
+    csvdiff = 'iface_heat_transfer_fr0_2.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.42 ClosureTest2Phase/vel_liquid=10 ClosureTest2Phase/vel_vapor=10 Outputs/file_base=iface_heat_transfer_fr0_2'
+  [../]
+  [./iht12_InterpolationPreCHF]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_prechf.i'
+    csvdiff = 'iface_heat_transfer_fr12.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.68 Outputs/file_base=iface_heat_transfer_fr12'
+  [../]
+  [./iht2_AnnularMist]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_prechf.i'
+    csvdiff = 'iface_heat_transfer_fr2.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.83 Outputs/file_base=iface_heat_transfer_fr2'
+  [../]
+  [./iht3_Stratified]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_prechf.i'
+    csvdiff = 'iface_heat_transfer_fr3.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.5 ClosureTest2Phase/vel_liquid=0 ClosureTest2Phase/vel_vapor=0 Outputs/file_base=iface_heat_transfer_fr3'
+  [../]
+  [./iht4_InvertedAnnular]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_prechf.i'
+    csvdiff = 'iface_heat_transfer_fr4.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'Outputs/file_base=iface_heat_transfer_fr4'
+  [../]
+  [./iht45_InterpolationPostCHF]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_postchf.i'
+    csvdiff = 'iface_heat_transfer_fr45.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.72 Outputs/file_base=iface_heat_transfer_fr45'
+  [../]
+  [./iht5_InvertedSlug]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_postchf.i'
+    csvdiff = 'iface_heat_transfer_fr5.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.92 Outputs/file_base=iface_heat_transfer_fr5'
+  [../]
+  [./iht56_Transition]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_postchf.i'
+    csvdiff = 'iface_heat_transfer_fr56.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.92 ClosureTest2Phase/vel_liquid=50 ClosureTest2Phase/vel_vapor=50 Outputs/file_base=iface_heat_transfer_fr56'
+  [../]
+  [./iht6_DispersedDroplet]
+    type = 'CSVDiff'
+    input = 'iface_heat_transfer_postchf.i'
+    csvdiff = 'iface_heat_transfer_fr6.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.92 ClosureTest2Phase/vel_liquid=100 ClosureTest2Phase/vel_vapor=100 Outputs/file_base=iface_heat_transfer_fr6'
+  [../]
+[]

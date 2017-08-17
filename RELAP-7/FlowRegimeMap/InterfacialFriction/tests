@@ -1,0 +1,74 @@
+[Tests]
+  [./idfr0_DispersedBubble]
+    type = 'CSVDiff'
+    input = 'iface_drag_prechf.i'
+    csvdiff = 'iface_drag_fr0.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'Outputs/file_base=iface_drag_fr0'
+  [../]
+  [./idfr01_InterpolationPreCHF]
+    type = 'CSVDiff'
+    input = 'iface_drag_prechf.i'
+    csvdiff = 'iface_drag_fr01.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.27 Outputs/file_base=iface_drag_fr01'
+  [../]
+  [./idfr1_CapSlug]
+    type = 'CSVDiff'
+    input = 'iface_drag_prechf.i'
+    csvdiff = 'iface_drag_fr1.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.37 Outputs/file_base=iface_drag_fr1'
+  [../]
+  [./idfr3_Stratified]
+    type = 'CSVDiff'
+    input = 'iface_drag_prechf.i'
+    csvdiff = 'iface_drag_fr3.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.5 ClosureTest2Phase/vel_liquid=0 ClosureTest2Phase/vel_vapor=0 Outputs/file_base=iface_drag_fr3'
+  [../]
+  [./idfr4_InvertedAnnular]
+    type = 'CSVDiff'
+    input = 'iface_drag_postchf.i'
+    csvdiff = 'iface_drag_fr4.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'Outputs/file_base=iface_drag_fr4
+  [../]
+  [./idfr45_InterpolationPostCHF]
+    type = 'CSVDiff'
+    input = 'iface_drag_postchf.i'
+    csvdiff = 'iface_drag_fr45.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.72 Outputs/file_base=iface_drag_fr45'
+  [../]
+  [./idfr5_InvertedSlug]
+    type = 'CSVDiff'
+    input = 'iface_drag_postchf.i'
+    csvdiff = 'iface_drag_fr5.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.92 Outputs/file_base=iface_drag_fr5'
+  [../]
+  [./idfr56_Transition]
+    type = 'CSVDiff'
+    input = 'iface_drag_postchf.i'
+    csvdiff = 'iface_drag_fr56.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.92 ClosureTest2Phase/vel_liquid=50 ClosureTest2Phase/vel_vapor=50 Outputs/file_base=iface_drag_fr56'
+  [../]
+  [./idfr6_DispersedDroplet]
+    type = 'CSVDiff'
+    input = 'iface_drag_postchf.i'
+    csvdiff = 'iface_drag_fr6.csv'
+    rel_err = 1e-15
+    abs_zero = 0.001
+    cli_args = 'ClosureTest2Phase/alpha_vapor=0.92 ClosureTest2Phase/vel_liquid=100 ClosureTest2Phase/vel_vapor=100 Outputs/file_base=iface_drag_fr6'
+  [../]
+[]
